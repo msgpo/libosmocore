@@ -1262,12 +1262,12 @@ static enum match_type cmd_ipv6_prefix_match(const char *str)
 
 #endif				/* HAVE_IPV6  */
 
-#define DECIMAL_STRLEN_MAX 10
+#define NUMERIC_STRLEN_MAX 18
 
 static int cmd_range_match(const char *range, const char *str)
 {
 	char *p;
-	char buf[DECIMAL_STRLEN_MAX + 1];
+	char buf[NUMERIC_STRLEN_MAX + 1];
 	char *endptr = NULL;
 
 	if (str == NULL)
@@ -1284,7 +1284,7 @@ static int cmd_range_match(const char *range, const char *str)
 		p = strchr(range, '-');
 		if (p == NULL)
 			return 0;
-		if (p - range > DECIMAL_STRLEN_MAX)
+		if (p - range > NUMERIC_STRLEN_MAX)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
@@ -1296,7 +1296,7 @@ static int cmd_range_match(const char *range, const char *str)
 		p = strchr(range, '>');
 		if (p == NULL)
 			return 0;
-		if (p - range > DECIMAL_STRLEN_MAX)
+		if (p - range > NUMERIC_STRLEN_MAX)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
@@ -1317,7 +1317,7 @@ static int cmd_range_match(const char *range, const char *str)
 		p = strchr(range, '-');
 		if (p == NULL)
 			return 0;
-		if (p - range > DECIMAL_STRLEN_MAX)
+		if (p - range > NUMERIC_STRLEN_MAX)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
@@ -1329,7 +1329,7 @@ static int cmd_range_match(const char *range, const char *str)
 		p = strchr(range, '>');
 		if (p == NULL)
 			return 0;
-		if (p - range > DECIMAL_STRLEN_MAX)
+		if (p - range > NUMERIC_STRLEN_MAX)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
