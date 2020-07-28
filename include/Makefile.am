@@ -164,6 +164,7 @@ nobase_include_HEADERS += \
                           osmocom/vty/vector.h \
                           osmocom/vty/vty.h \
                           osmocom/vty/ports.h \
+			  osmocom/vty/sched_vty.h \
                           osmocom/vty/tdef_vty.h \
                           osmocom/ctrl/control_vty.h
 endif
