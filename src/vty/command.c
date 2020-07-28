@@ -1276,7 +1276,7 @@ static int cmd_range_match(const char *range, const char *str)
 	if (range[1] == '-') {
 		signed long min = 0, max = 0, val;
 
-		val = strtol(str, &endptr, 10);
+		val = strtol(str, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
@@ -1288,7 +1288,7 @@ static int cmd_range_match(const char *range, const char *str)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
-		min = -strtol(buf, &endptr, 10);
+		min = -strtol(buf, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
@@ -1300,7 +1300,7 @@ static int cmd_range_match(const char *range, const char *str)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
-		max = strtol(buf, &endptr, 10);
+		max = strtol(buf, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
@@ -1309,7 +1309,7 @@ static int cmd_range_match(const char *range, const char *str)
 	} else {
 		unsigned long min, max, val;
 
-		val = strtoul(str, &endptr, 10);
+		val = strtoul(str, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
@@ -1321,7 +1321,7 @@ static int cmd_range_match(const char *range, const char *str)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
-		min = strtoul(buf, &endptr, 10);
+		min = strtoul(buf, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
@@ -1333,7 +1333,7 @@ static int cmd_range_match(const char *range, const char *str)
 			return 0;
 		strncpy(buf, range, p - range);
 		buf[p - range] = '\0';
-		max = strtoul(buf, &endptr, 10);
+		max = strtoul(buf, &endptr, 0);
 		if (*endptr != '\0')
 			return 0;
 
